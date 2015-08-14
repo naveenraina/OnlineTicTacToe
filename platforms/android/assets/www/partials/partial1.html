@@ -1,0 +1,132 @@
+<div class="owl-carousel style-carousel" owl-carousel>
+    <div class="item">
+        <div class="row">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-6">
+                <form>
+                    <div class="form-group">
+                        <input type="text" ng-model="currentUser.userName" class="form-control" placeholder="Enter your name" />
+                    </div>
+
+                    <button class="btn btn-primary" data-ng-click="addUser()">Start</button>
+                </form>
+
+</div>
+            <div class="col-xs-3"></div>
+        </div>
+    </div>
+
+
+    <div class="item">
+        <div class="row">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-6">
+                <br />
+                <p>Hi <strong>{{ currentUser.userName }}</strong>,</p>
+                <p>Share your key: <strong style="text-decoration: underline">{{ currentUser.userId }}</strong></p>
+                <br />
+                <p>
+                    OR
+                </p>
+
+                <form>
+                    <div class="form-group">
+                        <input type="text" ng-model="otherUser.otherUserId" class="form-control" placeholder="Enter other player's key" /> 
+                    </div>
+
+                    <button class="btn btn-primary" data-ng-click="startGame()">GO</button>
+                </form>
+
+                               
+                
+
+            </div>
+            <div class="col-xs-3"></div>
+        </div>
+    </div>
+
+
+    <div class="item">
+        <div class="row padding-item">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-6">
+                <strong>{{ currentUser.userName }}</strong> Vs <strong>{{ otherUser.otherUserName }}</strong>
+            </div>
+            <div class="col-xs-3"></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-4 col-xs-1"></div>
+            <div class="col-lg-4 col-xs-10">
+                <div class="row">
+                    <div class="col-xs-4 tile" data-game-tile="[0,0]">
+                        <div class="img-responsive tile-content" data-ng-class="{'tile-content-disabled': !game.isMyTurn, 'winning-combination': (winningCombination[0][0] && game.ticTacToeResponseType === 'Won'), 'loosing-combination': (winningCombination[0][0] && game.ticTacToeResponseType === 'Lost'), 'draw-combination': game.ticTacToeResponseType === 'Drawn'}">
+                            <!--<div ng-class="{'zero-img': gameBoard[0][0] === 'O', 'cross-img': gameBoard[0][0] === 'X' }" ></div>--> 
+                            {{ gameBoard[0][0] }}
+                        </div>
+                    </div>
+                    <div class="col-xs-4 tile" data-game-tile="[0,1]">
+                        <div class="img-responsive tile-content" data-ng-class="{'tile-content-disabled': !game.isMyTurn, 'winning-combination': (winningCombination[0][1] && game.ticTacToeResponseType === 'Won'), 'loosing-combination': (winningCombination[0][1] && game.ticTacToeResponseType === 'Lost'), 'draw-combination': game.ticTacToeResponseType === 'Drawn'}">
+                            {{ gameBoard[0][1]
+                            }}
+                        </div>
+                    </div>
+                    <div class="col-xs-4 tile" data-game-tile="[0,2]">
+                        <div class="img-responsive tile-content" data-ng-class="{'tile-content-disabled': !game.isMyTurn, 'winning-combination': (winningCombination[0][2] && game.ticTacToeResponseType === 'Won'), 'loosing-combination': (winningCombination[0][2] && game.ticTacToeResponseType === 'Lost'), 'draw-combination': game.ticTacToeResponseType === 'Drawn'}">
+                            {{ gameBoard[0][2] }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 tile" data-game-tile="[1,0]">
+                        <div class="img-responsive tile-content" data-ng-class="{'tile-content-disabled': !game.isMyTurn, 'winning-combination': (winningCombination[1][0] && game.ticTacToeResponseType === 'Won'), 'loosing-combination': (winningCombination[1][0] && game.ticTacToeResponseType === 'Lost'), 'draw-combination': game.ticTacToeResponseType === 'Drawn'}">
+                            {{ gameBoard[1][0] }}
+                        </div>
+                    </div>
+                    <div class="col-xs-4 tile" data-game-tile="[1,1]">
+                        <div class="img-responsive tile-content" data-ng-class="{'tile-content-disabled': !game.isMyTurn, 'winning-combination': (winningCombination[1][1] && game.ticTacToeResponseType === 'Won'), 'loosing-combination': (winningCombination[1][1] && game.ticTacToeResponseType === 'Lost'), 'draw-combination': game.ticTacToeResponseType === 'Drawn'}">
+                            {{ gameBoard[1][1] }}
+                        </div>
+                    </div>
+                    <div class="col-xs-4 tile" data-game-tile="[1,2]">
+                        <div class="img-responsive tile-content" data-ng-class="{'tile-content-disabled': !game.isMyTurn, 'winning-combination': (winningCombination[1][2] && game.ticTacToeResponseType === 'Won'), 'loosing-combination': (winningCombination[1][2] && game.ticTacToeResponseType === 'Lost'), 'draw-combination': game.ticTacToeResponseType === 'Drawn'}">
+                            {{ gameBoard[1][2] }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 tile" data-game-tile="[2,0]">
+                        <div class="img-responsive tile-content" data-ng-class="{'tile-content-disabled': !game.isMyTurn, 'winning-combination': (winningCombination[2][0] && game.ticTacToeResponseType === 'Won'), 'loosing-combination': (winningCombination[2][0] && game.ticTacToeResponseType === 'Lost'), 'draw-combination': game.ticTacToeResponseType === 'Drawn'}">
+                            {{ gameBoard[2][0] }}
+                        </div>
+                    </div>
+                    <div class="col-xs-4 tile" data-game-tile="[2,1]">
+                        <div class="img-responsive tile-content" data-ng-class="{'tile-content-disabled': !game.isMyTurn, 'winning-combination': (winningCombination[2][1] && game.ticTacToeResponseType === 'Won'), 'loosing-combination': (winningCombination[2][1] && game.ticTacToeResponseType === 'Lost'), 'draw-combination': game.ticTacToeResponseType === 'Drawn'}">
+                            {{ gameBoard[2][1] }}
+                        </div>
+                    </div>
+                    <div class="col-xs-4 tile" data-game-tile="[2,2]">
+                        <div class="img-responsive tile-content" data-ng-class="{'tile-content-disabled': !game.isMyTurn, 'winning-combination': (winningCombination[2][2] && game.ticTacToeResponseType === 'Won'), 'loosing-combination': (winningCombination[2][2] && game.ticTacToeResponseType === 'Lost'), 'draw-combination': game.ticTacToeResponseType === 'Drawn'}">
+                            {{ gameBoard[2][2] }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-xs-1"></div>
+
+
+        </div>
+        
+        <div class="row">
+            <div class="col-xs-3"></div>
+            <div class="col" ng-if="gameOver">
+                <span>Game over, <strong> {{ gameResult }}</strong></span>
+
+                <button class="btn btn-primary" data-ng-click="replay()">Replay</button>
+            </div>
+            <div class="col-xs-3"></div>
+        </div>       
+    </div>
+</div>
+
